@@ -1,13 +1,15 @@
-import sqlite3 as sq3
 from bottle import route, run, template, debug
+from ethdb import Database
 
 @route('/query')
 def query_db():
+    db = Database()
+    r = db.cursor().execute('SELECT * FROM Block')
     #conn = sq3.connect('./ethblockchain.db')
     #c = conn.cursor()
     #c.execute()
     #c.close()
-    return template('query')
+    return template('query', data=r.fetchone())
     #return fetchall() # bottle expects a string or list of strings
 
 # start web server
