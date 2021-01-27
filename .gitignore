@@ -3,6 +3,5 @@ ethblockchain.db
 push.sh
 .DS_Store
 __pycache__
-query*
-ethdb.py
-dashboard.css
+
+
